@@ -1,0 +1,40 @@
+{
+	"folders": [
+		{
+			"path": "BetterBlink"
+		},
+		{
+			"name": "Button1",
+			"path": "Button1"
+		},
+		{
+			"name": "Button2",
+			"path": "Button2"
+		},
+		{
+			"name": "Serial_Read_Blink",
+			"path": "Serial_Read_Blink"
+		},
+		{
+			"name": "Anlog_Read_ESP32",
+			"path": "Anlog_Read_ESP32"
+		},
+		{
+			"name": "PWM_ESP32",
+			"path": "PWM_ESP32"
+		},
+		{
+			"name": "Serial_write_button",
+			"path": "Serial_write_button"
+		},
+		{
+			"name": "Neopixel_ESP32",
+			"path": "Neopixel_ESP32"
+		},
+		{
+			"name": "Button2_debounce",
+			"path": "Button2_debounce"
+		}
+	],
+	"settings": {}
+}
