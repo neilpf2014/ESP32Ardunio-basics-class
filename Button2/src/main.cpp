@@ -53,10 +53,10 @@ uint32_t btnCycle(uint32_t CycleCnt, uint8_t &LastState)
   ButnState = digitalRead(BUTTON_PIN);
   // test btn state
   // high to low (button going up)
-  if((ButnState = 1) & (LastState = 0))
+  if((ButnState == HIGH) && (LastState == LOW))
     CycleCnt++;
   // low to high (button going up)
-  if((ButnState = 0) & (LastState = 1))
+  if((ButnState == LOW) && (LastState == HIGH))
     CycleCnt++;
   LastState = ButnState;
   return CycleCnt;
