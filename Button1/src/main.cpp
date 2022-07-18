@@ -7,7 +7,8 @@
  */
 
 #include <Arduino.h>
-// #define LED_BUILTIN 2
+// comment out for onboard LED
+#define LED_BUILTIN 2
 // define blink period
 #define PERIOD 100
 // define button GPIO
@@ -44,13 +45,13 @@ void setup()
   pinMode(LED_BUILTIN, OUTPUT);
   CurState = true;
   ButnState = 0;
-  // attach button GPIO
-  pinMode(BUTTON_PIN, INPUT);
+  // attach button GPIO - pulldown to ground
+  pinMode(BUTTON_PIN, INPUT_PULLDOWN);
 }
 
 void loop()
 {
-  if (millis() > PastMils + PERIOD)
+  if (millis() > (PastMils + PERIOD))
   {
       CurState = toggleLed(CurState);
       PastMils = millis();

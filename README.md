@@ -1,9 +1,9 @@
 # ESP32Ardunio-basics-class
 
 ## Class examples ESP32 Ardunio class
-- Simple blink (From Ardunio)
-- Better Blink - Is non-blocking
-- Button example
+* Simple blink (From Ardunio)
+* Better Blink - Is non-blocking
+* Button example
 * Serial Write with Button
 * Serial Read with LED flashing
 * Analog Read Serial

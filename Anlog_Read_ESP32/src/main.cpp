@@ -18,7 +18,7 @@ uint64_t PastMils;
 
 void setup() {
   Serial.begin(115200);
-  delay(1000);
+  delay(200);
   Serial.println('Ready');
 }
 
@@ -27,8 +27,10 @@ void loop() {
   if (millis() > (PastMils + DELAY_PER))
   {
       potValue = analogRead(A_PIN);
-      Serial.println('Run time:' + millis());
-      Serial.println('Read is ' + potValue);
+      Serial.print("Run time: ")
+      Serial.println(millis());
+      Serial.print("Read is ");
+      Serial.println(potValue);
       PastMils = millis();
   }
 }

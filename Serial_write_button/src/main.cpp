@@ -10,6 +10,8 @@
 
 #include <Arduino.h>
 
+// comment out for onboard LED
+#define LED_BUILTIN 2
 // define base blink period
 #define BASE_PERIOD 1000
 // define debounce period
@@ -29,6 +31,7 @@ uint8_t CurBtnState;
 uint32_t BtnCycles;
 // LED on/off time mills
 uint32_t LEDperiod;
+uint32_t theHz;
 
 
 //function to toggle led on / off
@@ -54,15 +57,14 @@ bool toggleLed(bool state)
 uint32_t btnCycle(uint32_t CycleCnt, uint8_t &LastState, uint64_t &DbTime)
 {
   uint8_t ButnState;
-  if (millis() > DbTime + DEBOUNCE_DELAY)
+  if (millis() > (DbTime + DEBOUNCE_DELAY))
   {
     ButnState = digitalRead(BUTTON_PIN);
-    // test btn state
     // high to low (button going up)
-    if((ButnState = 1) & (LastState = 0))
+    if((ButnState == 1) & (LastState == 0))
       CycleCnt++;
     // low to high (button going up)
-    if((ButnState = 0) & (LastState = 1))
+    if((ButnState == 0) & (LastState == 1))
       CycleCnt++;
     LastState = ButnState;
     DbTime = millis();
@@ -78,15 +80,16 @@ void setup()
   pinMode(LED_BUILTIN, OUTPUT);
   CurLEDState = true;
   // attach button GPIO
-  pinMode(BUTTON_PIN, INPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLDOWN);
   LEDperiod = BASE_PERIOD;
   BtnCycles = 0;
   Serial.println("Started run");
+  delay(100);
 }
 
 void loop()
 {
-  if (millis() > PastMils + LEDperiod)
+  if (millis() > (PastMils + LEDperiod))
   {
       CurLEDState = toggleLed(CurLEDState);
       PastMils = millis();
@@ -99,15 +102,17 @@ void loop()
   if (BtnCycles > 1)
   {
     LEDperiod = LEDperiod / 2;
+    theHz = 1000/LEDperiod;
     BtnCycles = 0;
     Serial.print("blink rate: ");
-    Serial.print(1000/LEDperiod);
+    Serial.print(theHz);
     Serial.println(" Hz");
-    Serial.println(millis() + "run time ms");
-    Serial.println();
+    Serial.print(millis());
+    Serial.println(" run time ms");
+    Serial.println("");
   }
   
-  // reset back to base if below 5 ms
-  if (LEDperiod < 5)
+  // reset back to base if below 2 ms
+  if (LEDperiod < 2)
     LEDperiod = BASE_PERIOD;
 }
