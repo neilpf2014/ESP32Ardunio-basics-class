@@ -8,7 +8,8 @@
  * NF 2022-05-28.
  */
 
-// #define LED_BUILTIN 2
+// remove for onboard led
+#define LED_BUILTIN 2
 
 // define base blink period
 #define BASE_PERIOD 1000
@@ -91,7 +92,7 @@ void setup()
 
 void loop()
 {
-  if (millis() > PastMils + LEDperiod)
+  if (millis() > (PastMils + LEDperiod))
   {
       CurLEDState = toggleLed(CurLEDState);
       PastMils = millis();
@@ -107,12 +108,13 @@ void loop()
     if(buffer[0] == '+')
     {
       LEDperiod = LEDperiod / 2;
-      Serial.println("led period is now " + LEDperiod);
+      Serial.print("led period is now ");
+      Serial.println(LEDperiod);
     }
     i = 0;
     inputEnd = false;
   }
-  // reset back to base if below 5 ms
-  if (LEDperiod < 5)
+  // reset back to base if below 2 ms
+  if (LEDperiod < 2)
     LEDperiod = BASE_PERIOD;
 }
