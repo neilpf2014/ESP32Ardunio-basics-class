@@ -7,7 +7,8 @@
  */
 
 #include <Arduino.h>
-// #define LED_BUILTIN 2
+// comment this out if using board with standard LED
+#define LED_BUILTIN 2
 // define blink period
 #define PERIOD 1000
 
@@ -44,7 +45,7 @@ void setup()
 
 void loop()
 {
-  if (millis() > PastMils + PERIOD)
+  if (millis() > (PastMils + PERIOD))
   {
       CurState = toggleLed(CurState);
       PastMils = millis();
