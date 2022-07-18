@@ -28,6 +28,8 @@ void setup()
   /* Attach the LED PWM Channel to the GPIO Pin */
   ledcAttachPin(LED_PIN, PWM_CHANNEL);
   pastMils = millis();
+  dutyCycle = 1;
+  LastdutyCycle = 0;
 }
 void loop()
 {
