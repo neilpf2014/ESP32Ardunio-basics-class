@@ -20,4 +20,4 @@ There are also some advanced items that are not part of the course
 - [ESP32 pinout and other stuff](https://randomnerdtutorials.com/esp32-pinout-reference-gpios/ "pinouts")
 
 ## Pinout of our Devkit C Board
-![board ESP32](../images/esp32-devkitC-v4-pinout.png)
+![board ESP32](https://github.com/neilpf2014/ESP32Ardunio-basics-class/blob/master/images/esp32-devkitC-v4-pinout.png)
