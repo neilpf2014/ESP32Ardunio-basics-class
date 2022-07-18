@@ -2,7 +2,7 @@
 
 ## Class examples ESP32 Ardunio class
 - Simple blink (From Ardunio)
-- Better Blink - is non-blocking
+- Better Blink - Is non-blocking
 - Button example
 * Serial Write with Button
 * Serial Read with LED flashing
@@ -18,3 +18,6 @@ There are also some advanced items that are not part of the course
 - [Official ESP32 page](https://www.espressif.com/en/products/socs/esp32/resources "espressif")
 - [ESP32 info](http://esp32.net/ "ESP32.net")
 - [ESP32 pinout and other stuff](https://randomnerdtutorials.com/esp32-pinout-reference-gpios/ "pinouts")
+
+## Pinout of our Devkit C Board
+![board ESP32](../images/esp32-devkitC-v4-pinout.png)
